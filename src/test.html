@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log('1 .================스프래드연산자로 추가==========');
+      const a = [1, 2, 3];
+      const b = [...a];
+      const c = [4, ...a, 5];
+      b.push(4);
+      console.log(`a의 값은 ${a}`);
+      console.log(`b의 값은 ${b}`);
+      console.log(`c의 값은 ${c}`);
+
+      console.log('2. ================추가하기=========='); // concat는 추가할때 사용한다.
+      const a1 = [1, 2, 3];
+      const b1 = a1.concat(4);
+      console.log(`a1의 값은 ${a1}`);
+      console.log(`b1의 값은 ${b1}`);
+
+      console.log('3. ================걸러내기=========='); //filter삭제할때 사용한다.
+      const a3 = [1, 2, 3];
+      const b3 = a3.filter((n) => {
+        return n != 1;
+      }); //filter는 boolean 을 리턴한다.
+      console.log(`a3의 값은 ${a3}`);
+      console.log(`b3의 값은 ${b3}`);
+
+      console.log('4. ================잘라내기 & 삽입하기==========');
+      const a4 = [1, 2, 3];
+      const b4 = a4.slice(0, 2);
+      console.log(`a4의 값은 ${a4}`);
+      console.log(`b4의 값은 ${b4}`);
+      const c4 = [...a4.slice(0, 2), 4, ...a4.slice(2, 3)];
+      console.log(`c4의 값은 ${c4}`);
+
+      console.log('5. ================반복하기==========');
+      const a5 = [1, 2, 3];
+      // a5.forEach((n) => console.log(n)); // 리턴이 안되어서 사용하기 어렵다.
+      const b5 = a5.map((n) => n);
+      console.log(`b5의 값은 ${b5}`);
+
+      console.log('6. ================수정하기==========');
+
+      const a6 = { id: 1, name: ' 김청원', phone: '1111' };
+      const b6 = { ...a6, name: 'KIM' };
+      console.log(`a6의 값은 ${a6.name}`);
+      console.log(`b6의 값은 ${b6.name}`);
+
+      const users = [
+        { id: 1, name: ' 김청원', phone: '1111' },
+        { id: 2, name: ' 최미', phone: '2222' },
+        { id: 3, name: ' 김주원', phone: '3333' },
+      ];
+
+      const updateUser = { id: 2, name: '김주하' };
+      const newUsers = users.map((user) =>
+        user.id === updateUser.id ? { ...user, ...updateUser } : user
+      );
+      console.log('newUsers:', newUsers);
+
+      let nums = Array.from({ length: 5 });
+      console.log('nums: ', nums);
+    </script>
+  </body>
+</html>
