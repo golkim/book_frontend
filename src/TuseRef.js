@@ -1,6 +1,14 @@
 import React, { createRef, useRef, useState } from 'react';
+import styled from 'styled-components';
 // useRef( 디자인)
 //  dom을 변경할때 사용
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: pick cornflowerblue;
+  background-color: rebeccapurple;
+`;
 
 function TuseRef(props) {
   const myRef = useRef(null);
@@ -14,6 +22,7 @@ function TuseRef(props) {
 
   return (
     <div>
+      <Title>sdoifjosjdfosdjfo</Title>
       <button
         onClick={() => {
           myRef.current.style.backgroundColor = 'red';
